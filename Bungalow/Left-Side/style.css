@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(
+    90deg,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  );
+}
+
+.bungalow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-direction: column;
+}
+
+.roof {
+  width: 470px;
+  height: 70px;
+  background-color: #252525;
+  clip-path: polygon(60% 0%, 100% 100%, 0% 100%);
+  position: relative;
+  background: url(../Bilder/holzfassade.jpg);
+  background-size: 30%;
+} /* Dachfarbe */
+
+.Linke-Ansicht {
+  width: 450px;
+  height: 250px;
+  background: url(../Bilder/Außenputz.webp) repeat center; /* Wandfarbe */
+  position: relative;
+  overflow: hidden;
+}
+
+.window {
+  width: 100px;
+  height: 200px;
+  background: url(../Bilder/GlassbausteinwandBad.jpeg) center;
+  background-size: 70%;
+  z-index: 10;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+.holzseite {
+  background: url(../Bilder/holzfassade.jpg);
+  background-size: 30%;
+  width: 280px;
+  height: 300px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: red;
+    transition: 0.3s;
+    text-decoration: underline;
+  }
+}
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+}

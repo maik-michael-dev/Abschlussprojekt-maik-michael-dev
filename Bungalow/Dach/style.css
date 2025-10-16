@@ -1,0 +1,356 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: rgb(109, 175, 109);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(
+    90deg,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  );
+}
+
+.bungalow {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.roof {
+  width: 1100px;
+  height: 500px;
+  background-color: #292929;
+  position: relative;
+  background: url(../Bilder/schindeln.webp);
+  background-size: 100px;
+}
+
+.schorni1,
+.schorni2 {
+  width: 30px;
+  height: 30px;
+  background-color: #917f7f;
+  border: 10px black solid;
+  position: absolute;
+  top: 165px;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+.schorni1 {
+  left: 0;
+}
+
+.schorni2 {
+  right: 400px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+
+  &:hover {
+    color: red;
+    text-decoration: underline;
+  }
+}
+
+.Front {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Left {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Right {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.behind {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+.fenster {
+  width: 300px;
+  background-color: lightgrey;
+  position: absolute;
+}
+.fenster1 {
+  height: 250px;
+  left: 0px;
+  top: -100px;
+  background-color: yellow;
+  display: flex;
+
+  div {
+    width: 100px;
+    height: 250px;
+    background: url(../Bilder/Wintergarten.jpg) center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.fenster2 {
+  height: 120px;
+  width: 100px;
+  right: 30px;
+  bottom: 20px;
+}
+.fenster3 {
+  height: 120px;
+  width: 100px;
+  right: 30px;
+  bottom: 140px;
+}
+
+.fenster4 {
+  height: 120px;
+  width: 100px;
+  right: 30px;
+  bottom: 240px;
+}
+
+.fenster2,
+.fenster3 {
+  background: url("../Bilder/Dachfenster-Schlafzimmer.jpeg") center;
+  background-size: 200%;
+}
+
+.solarzellen {
+  height: 200px;
+  width: 100px;
+  border: white 4px solid;
+
+  box-shadow: -9px 0px 5px rgb(0, 0, 59);
+  outline: none;
+
+  background: rgb(57, 57, 250);
+
+  position: absolute;
+  bottom: 30px;
+
+  animation: 3s yeah infinite;
+}
+
+.zelle1 {
+  left: 250px;
+  animation-delay: 0.5s;
+}
+
+.zelle2 {
+  left: 360px;
+  animation-delay: 1s;
+}
+.zelle3 {
+  left: 470px;
+  animation-delay: 1.5s;
+}
+
+.zelle4 {
+  animation-delay: 2s;
+  left: 580px;
+}
+
+.zelle5 {
+  left: 690px;
+  animation-delay: 2.5s;
+}
+
+.zelle6 {
+  left: 800px;
+  animation-delay: 3s;
+}
+
+@keyframes yeah {
+  50% {
+    background: rgb(40, 41, 83);
+    box-shadow: -9px 0px 5px rgb(68, 87, 0);
+  }
+}
+
+.pergola {
+  width: 500px;
+  height: 260px;
+  position: absolute;
+  background: #dbdbdb;
+  left: 52.5%;
+  top: 10%;
+  background: url("../Bilder/Fußboden Pergular und Swimmingpool Terrasse.webp") repeat;
+  background-size: 30%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.432);
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 280px;
+    width: 520px;
+    background-color: darkgray;
+    z-index: -1;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    height: 25px;
+    width: 60px;
+    top: -35px;
+    left: 56%;
+    background-color: brown;
+    z-index: 5;
+  }
+}
+.kamin {
+  position: absolute;
+  height: 100px;
+  width: 80px;
+  background-color: brown;
+  left: -10px;
+  bottom: 10px;
+
+  .rohr {
+    border: 2px solid black;
+    width: 20px;
+    height: 60px;
+    position: absolute;
+    background-color: gray;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.europlatte {
+  width: 80px;
+  height: 120px;
+  background-color: chocolate;
+  position: absolute;
+  right: 20px;
+
+  &:after {
+    content: "";
+    width: 14px;
+    height: 120px;
+    background: chocolate;
+    position: absolute;
+    top: 0;
+    right: -15px;
+  }
+}
+
+.euro1 {
+  height: 120px;
+  bottom: 10px;
+}
+.euro2 {
+  height: 120px;
+  bottom: 130px;
+}
+
+.tisch {
+  width: 200px;
+  height: 60px;
+  transform: rotate(90deg);
+  background: url("../Bilder/Tischplatte Pergular.jpeg") repeat;
+  background-size: 50px;
+  position: absolute;
+  right: 90px;
+  top: 100px;
+  border-radius: 5px;
+  box-shadow: 0 0 2px black;
+}
+.lampi {
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 0px 50px yellow;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 62%;
+  z-index: 30;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.balken {
+  width: 10px;
+  height: 7px;
+  background-color: white;
+  z-index: 10;
+  position: absolute;
+}
+
+.balken1 {
+  bottom: -10px;
+  left: -7px;
+}
+
+.balken2 {
+  bottom: -10px;
+  left: 100px;
+}
+
+.balken3 {
+  top: -10px;
+  left: 100px;
+}
+
+.balken4 {
+  top: -10px;
+  right: -7px;
+}
+
+.balken5 {
+  bottom: -10px;
+  right: -7px;
+}
+
+.balken6 {
+  bottom: -10px;
+  right: 93px;
+}
+
+.balken7 {
+  top: -10px;
+  right: 93px;
+}
+
+.balken8 {
+  top: -10px;
+  left: -10px;
+}
+
+.tonne {
+  width: 51px;
+  height: 51px;
+  background: darkgray;
+  border-radius: 50%;
+  border: 2px solid black;
+  position: absolute;
+  top: 96px;
+  left: 5px;
+}

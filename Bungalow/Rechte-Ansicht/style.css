@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(
+    90deg,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet
+  );
+}
+
+.bungalow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-direction: column;
+
+  &::before {
+    content: "Vorne =>";
+    position: absolute;
+    left: 0;
+    font-size: 5rem;
+  }
+
+  &::after {
+    content: "<= Hinten";
+    position: absolute;
+    right: 0;
+    font-size: 5rem;
+  }
+}
+
+.roof {
+  width: 420px;
+  height: 70px;
+  clip-path: polygon(40% 0%, 100% 100%, 0% 100%);
+  position: relative;
+  background: url(../Bilder/holzfassade.jpg) repeat center;
+  background-size: 30%;
+}
+
+.Rechte-Ansicht {
+  width: 400px;
+  height: 250px;
+  background: url(../Bilder/holzfassade.jpg) repeat center; /* Wandfarbe */
+  background-size: 30%;
+  position: relative;
+  overflow: hidden;
+}
+
+.window {
+  width: 100px;
+  height: 200px;
+  background-color: #cbdadf; /* Fensterfarbe */
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  bottom: 10px;
+
+  border: 4px solid white; /* Fensterrahmen */
+}
+
+a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: red;
+    transition: 0.3s;
+    text-decoration: underline;
+  }
+}
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dach {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}

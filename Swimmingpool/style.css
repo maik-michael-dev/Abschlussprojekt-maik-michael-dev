@@ -1,0 +1,145 @@
+/*Allgemeine Stileinstellungen:
+  - Setzt den margin und padding aller Elemente auf 0.
+  - Setzt box-sizing auf border-box für alle Elemente.*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Stile für das body-Element:
+  - Setzt die Höhe und Breite auf 100% der Viewport-Höhe und -Breite.
+  - Zentriert den Inhalt horizontal und vertikal mit Flexbox.*/
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Stile für das #Wiese-Element:
+  - Setzt die Breite und Höhe.
+  - Fügt ein Hintergrundbild hinzu und skaliert es, um den gesamten Bereich abzudecken.
+  - Zentriert den Inhalt horizontal und vertikal mit Flexbox.
+  - Setzt den z-index auf -1, um es hinter anderen Elementen zu platzieren.*/
+
+#Wiese {
+  width: 20cm;
+  height: 12cm;
+  background-image: url(./Wiese.jpeg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+/*Stile für das #Terrasse-Element:
+  - Setzt die Breite und Höhe.
+  - Fügt ein Hintergrundbild hinzu und skaliert es, um den gesamten Bereich abzudecken.
+  - Rotiert das Element um 90 Grad.
+  - Positioniert das Element relativ.
+  - Fügt eine braune linke Rahmenlinie hinzu.*/
+
+#Terrasse {
+  width: 6cm;
+  height: 4cm;
+  background-image: url(Holzfußboden.png);
+  background-size: cover;
+  background-position: center;
+  transform: rotate(90deg);
+  position: relative;
+  border-left: 0.1cm solid brown;
+}
+
+/*Stile für das #Blumentopf-Element:
+  - Setzt die Breite und Höhe.
+  - Fügt ein Hintergrundbild hinzu und skaliert es, um den gesamten Bereich abzudecken.
+  - Positioniert das Element absolut.
+  - Setzt die Position von oben und links.
+  - Macht das Element rund durch border-radius.
+  - Setzt den z-index auf 10, um es vor anderen Elementen zu platzieren.*/
+
+#Blumentopf {
+  width: 1.2cm;
+  height: 1.2cm;
+  background-image: url(Blume.jpeg);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 2.5cm;
+  left: 0.5cm;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/*Stile für das #Pool-Element:
+  - Setzt die Breite und Höhe.
+  - Fügt ein Hintergrundbild hinzu und skaliert es, um den gesamten Bereich abzudecken.
+  - Rotiert das Element um 90 Grad.
+  - Zentriert den Inhalt horizontal und vertikal mit Flexbox.
+  - Fügt eine braune linke Rahmenlinie hinzu.*/
+
+#Pool {
+  width: 6cm;
+  height: 8cm;
+  background-image: url(Holzfußboden.png);
+  background-size: cover;
+  background-position: center;
+  transform: rotate(90deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 0.1cm solid brown;
+}
+
+/*Stile für das #Wasser-Element:
+  - Setzt die Breite und Höhe.
+  - Fügt ein Hintergrundbild hinzu und skaliert es, um den gesamten Bereich abzudecken.*/
+
+#Wasser {
+  width: 4cm;
+  height: 6cm;
+  background-image: url(Pool.jpeg);
+  background-size: cover;
+  background-position: center;
+}
+/*Stile für das #Schilf-Element:
+  - Setzt die Breite und Höhe.
+  - Fügt ein Hintergrundbild hinzu und skaliert es, um den gesamten Bereich abzudecken.
+  - Fügt einen linken Randabstand hinzu.
+  - Fügt braune Rahmenlinien oben, rechts und unten hinzu.*/
+
+#Schilf {
+  width: 1cm;
+  height: 6cm;
+  background-image: url(./Schilf.png);
+  background-size: cover;
+  background-position: center;
+  margin-left: 1cm;
+  border-top: 0.1cm solid brown;
+  border-right: 0.1cm solid brown;
+  border-bottom: 0.1cm solid brown;
+}
+
+/*Stile für das #Hollywoodschaukel-Element:
+  - Setzt die Breite und Höhe.
+  - Fügt ein Hintergrundbild hinzu und skaliert es, um den gesamten Bereich abzudecken.
+  - Positioniert das Element absolut.
+  - Setzt die Position von rechts und unten.
+*/
+
+#Hollywoodschaukel {
+  width: 4cm;
+  height: 1.8cm;
+  background-image: url(./Hollywoodschaukel.png);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

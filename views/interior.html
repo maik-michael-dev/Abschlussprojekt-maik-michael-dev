@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="Author" content="Maik Protze" />
+  <meta name="description" content="Bungalow Möbel Shop - Hochwertige Möbel für Ihr Zuhause" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bungalow Möbel Shop</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">🏠 Bungalow Möbel</h1>
+      <ul class="nav-menu">
+        <li><a href="#home">Start</a></li>
+        <li><a href="#grundriss">Grundriss</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#warenkorb" class="cart-link">
+          🛒 Warenkorb <span id="cartCount">(0)</span>
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Willkommen im Bungalow Möbel Shop</h1>
+      <p class="hero-subtitle">Entdecken Sie unseren Grundriss und finden Sie die perfekten Möbel für Ihr Zuhause</p>
+      <a href="#shop" class="cta-button">Jetzt einkaufen</a>
+    </div>
+  </section>
+
+  <!-- Grundriss Section -->
+  <section id="grundriss" class="grundriss-section">
+    <div class="section-container">
+      <h2 class="section-title">Unser Bungalow Grundriss</h2>
+      <p class="section-subtitle">Interaktiver Grundriss - Klicken Sie auf die Lampen zum Ein-/Ausschalten</p>
+      
+      <div class="grundriss-container">
+        <button id="toggleButton" class="toggle-doors-btn">TÜREN</button>
+        <div class="bungalow">
+    <div class="schafzimmer">
+      <div class="tuer" id="bedRoomDoor"></div>
+      <div class="bett">
+        <div class="kissen k1"></div>
+        <div class="kissen k2"></div>
+        <div class="decke"></div>
+      </div>
+      <div class="kleiderschrank">
+        <div class="lampe1 lampe"></div>
+        <div class="lampe2 lampe"></div>
+      </div>
+      <div class="komode"></div>
+      <div class="karmin"></div>
+      <div class="pfeiler"></div>
+      <div class="Fernseher"></div>
+      <div class="wandlamp"></div>
+      <div class="pflanzi"></div>
+      <div class="fenster"></div>
+    </div>
+    <div class="kueche">
+      <div class="zeileost">
+        <div class="kuehlschrank"></div>
+        <div class="herd"></div>
+        <div class="schrank"></div>
+      </div>
+      <div class="zeilenord">
+        <div class="spuele"></div>
+        <div class="spuelmaschine"></div>
+      </div>
+      <div class="oberschrank"></div>
+      <div class="tuer2" id="kitchenDoor2"></div>
+
+      <div class="tuer" id="kitchenDoor"></div>
+      <div class="fenster"></div>
+    </div>
+    <div class="aquarium">
+      <div class="fish" id="fish1"></div>
+      <div class="fish" id="fish2"></div>
+      <div class="fish" id="fish3"></div>
+    </div>
+
+    <div class="wohnzimmer">
+      <div class="tuer" id="livingDoor"></div>
+
+      <div class="fernseher"></div>
+      <div class="couch"></div>
+      <div class="couch2"></div>
+      <div class="schreibtisch1">
+        <div class="stuhl stuhl1"></div>
+      </div>
+      <div class="schreibtisch2">
+        <div class="stuhl stuhl2"></div>
+      </div>
+      <div class="karmin"></div>
+      <div class="schrank"></div>
+      <div class="fenster fenster1"></div>
+      <div class="fenster fenster2"></div>
+      <div class="fenster fenster3"></div>
+      <div class="fenster fenster5"></div>
+      <div class="fenster fenster6"></div>
+      <div class="rahmen"></div>
+    </div>
+    <div class="flur">
+      <div class="gardrobe"></div>
+      <div class="Tuer" id="floorDoor"></div>
+      <div class="fenster"></div>
+    </div>
+    <div class="bad">
+      <div class="tuer" id="bathRoomDoor"></div>
+      <div class="wanne">
+        <div class="dusche"></div>
+      </div>
+      <div class="toilette"></div>
+      <div class="waschbecken"></div>
+      <div class="schrank1"></div>
+      <div class="schrank2"></div>
+      <div class="mirrow"></div>
+      <div class="lampe1 lampe"></div>
+      <div class="lampe2 lampe"></div>
+      <div class="lampe3 lampe"></div>
+      <div class="fenster"></div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" class="shop-section">
+    <div class="section-container">
+      <h2 class="section-title">Möbel Shop</h2>
+      <p class="section-subtitle">Wählen Sie aus unserer exklusiven Kollektion</p>
+      
+      <div class="product-grid">
+        <!-- Produkt 1: Bett -->
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <div class="sofa-icon">�️</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Boxspringbett Premium</h3>
+            <p class="product-description">Luxus Doppelbett 180x200cm mit Matratze</p>
+            <p class="product-price">1.299,99 €</p>
+            <button class="add-to-cart-btn" data-product="Boxspringbett Premium" data-price="1299.99">In den Warenkorb</button>
+          </div>
+        </div>
+
+        <!-- Produkt 2: Kleiderschrank -->
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+            <div class="sofa-icon">🚪</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Kleiderschrank XXL</h3>
+            <p class="product-description">4-türiger Schrank mit Spiegel & LED-Beleuchtung</p>
+            <p class="product-price">899,99 €</p>
+            <button class="add-to-cart-btn" data-product="Kleiderschrank XXL" data-price="899.99">In den Warenkorb</button>
+          </div>
+        </div>
+
+        <!-- Produkt 3: Sideboard -->
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+            <div class="sofa-icon">�️</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Sideboard Modern</h3>
+            <p class="product-description">Elegantes Sideboard mit 3 Schubladen</p>
+            <p class="product-price">449,99 €</p>
+            <button class="add-to-cart-btn" data-product="Sideboard Modern" data-price="449.99">In den Warenkorb</button>
+          </div>
+        </div>
+
+        <!-- Produkt 4: Kamin -->
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);">
+            <div class="sofa-icon">�</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Elektrokamin Deluxe</h3>
+            <p class="product-description">Wandkamin mit LED-Flammeneffekt & Heizung</p>
+            <p class="product-price">599,99 €</p>
+            <button class="add-to-cart-btn" data-product="Elektrokamin Deluxe" data-price="599.99">In den Warenkorb</button>
+          </div>
+        </div>
+
+        <!-- Produkt 5: Fernseher -->
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="sofa-icon">📺</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Smart TV 65 Zoll</h3>
+            <p class="product-description">4K Ultra HD Smart-TV mit HDR</p>
+            <p class="product-price">1.199,99 €</p>
+            <button class="add-to-cart-btn" data-product="Smart TV 65 Zoll" data-price="1199.99">In den Warenkorb</button>
+          </div>
+        </div>
+
+        <!-- Produkt 6: Sofa -->
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <div class="sofa-icon">🛋️</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Designer Sofa</h3>
+            <p class="product-description">3-Sitzer Ecksofa mit Schlaffunktion</p>
+            <p class="product-price">1.499,99 €</p>
+            <button class="add-to-cart-btn" data-product="Designer Sofa" data-price="1499.99">In den Warenkorb</button>
+          </div>
+        </div>
+
+        <!-- Produkt 7: Esstisch -->
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+            <div class="sofa-icon">🍽️</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Esstisch Massivholz</h3>
+            <p class="product-description">Ausziehbarer Tisch für 6-8 Personen</p>
+            <p class="product-price">749,99 €</p>
+            <button class="add-to-cart-btn" data-product="Esstisch Massivholz" data-price="749.99">In den Warenkorb</button>
+          </div>
+        </div>
+
+        <!-- Produkt 8: Kommode -->
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);">
+            <div class="sofa-icon">🗃️</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Kommode Vintage</h3>
+            <p class="product-description">Stilvolle Kommode mit 5 Schubladen</p>
+            <p class="product-price">379,99 €</p>
+            <button class="add-to-cart-btn" data-product="Kommode Vintage" data-price="379.99">In den Warenkorb</button>
+          </div>
+        </div>
+
+        <!-- Produkt 9: Schreibtisch -->
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);">
+            <div class="sofa-icon">�</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Gaming Schreibtisch</h3>
+            <p class="product-description">Ergonomischer Schreibtisch mit RGB-Beleuchtung</p>
+            <p class="product-price">549,99 €</p>
+            <button class="add-to-cart-btn" data-product="Gaming Schreibtisch" data-price="549.99">In den Warenkorb</button>
+          </div>
+        </div>
+
+        <!-- Produkt 10: Regal -->
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);">
+            <div class="sofa-icon">📚</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Bücherregal Modern</h3>
+            <p class="product-description">Offenes Regal mit 5 Ebenen, Eiche-Optik</p>
+            <p class="product-price">299,99 €</p>
+            <button class="add-to-cart-btn" data-product="Bücherregal Modern" data-price="299.99">In den Warenkorb</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warenkorb Section -->
+  <section id="warenkorb" class="cart-section">
+    <div class="section-container">
+      <h2 class="section-title">Warenkorb</h2>
+      
+      <div class="cart-content">
+        <div id="cartItems" class="cart-items">
+          <p class="empty-cart">Ihr Warenkorb ist leer</p>
+        </div>
+        
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Zwischensumme:</span>
+            <span id="subtotal">0,00 €</span>
+          </div>
+          <div class="summary-row">
+            <span>Versand:</span>
+            <span id="shipping">49,99 €</span>
+          </div>
+          <div class="summary-row total">
+            <span>Gesamt:</span>
+            <span id="total">0,00 €</span>
+          </div>
+          <button class="checkout-btn" id="checkoutBtn">Zur Kasse</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Bungalow Möbel Shop - Designed by Maik Protze</p>
+    </div>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
+</html>

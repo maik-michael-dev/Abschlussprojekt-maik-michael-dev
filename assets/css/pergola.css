@@ -1,0 +1,54 @@
+body {
+    background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+
+.pergola-container {
+    perspective: 1000px;
+}
+
+.pergola {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    transform: rotateX(10deg);
+}
+
+.roof-beams {
+    width: 100%;
+    height: 30px;
+    background: repeating-linear-gradient(
+        90deg,
+        #8B4513,
+        #8B4513 40px,
+        transparent 40px,
+        transparent 60px
+    );
+    position: absolute;
+    top: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.posts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.posts::before,
+.posts::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 370px;
+    background: linear-gradient(to right, #654321, #8B4513);
+    top: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.posts::before {
+    left: 50px;
+}
+
+.posts::after {
+    right: 50px;
+}

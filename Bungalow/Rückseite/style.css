@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #87ceeb; /* Himmelblau */
+  display: flex;
+  align-items: center;
+  
+  flex-direction: column;
+}
+
+.bungalow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1100px;
+}
+
+.roof {
+  width: 100%;
+  height: 70px;
+  background-color: #252525;
+  position: relative;
+  background: url(../Bilder/schindeln.webp) repeat;
+  background-size: 10%;
+  
+} /* Dachfarbe */
+
+.Rückseite {
+  width: 100%;
+  height:  300px;
+  background: url(../Bilder/holzfassade.jpg) repeat center; /* Wandfarbe */
+  position: relative;
+  background-size: 10%;
+  display: flex;
+  align-items: start;
+  justify-content: space-around;
+}
+
+.oberlicht {
+  width: 80px;
+  height: 40px;
+  background-color: #cbdadf; /* Fensterfarbe */
+  /*z-index: 10;*/
+  background: url(../Bilder/oberlicht.webp);
+  background-size: 100%;
+  background-position: center;
+  border: 4px solid white; /* Fensterrahmen */
+  position: absolute;
+  top: 0;
+}
+.Schlafzimmer {
+  right: 30px;
+}
+
+.Wohnzimmer {
+  left: 110px;
+}
+
+.Küche {
+  left: 410px;
+}
+
+.schornstein,
+.schornstein2 {
+  width: 30px;
+  height: 80px;
+  background-color: #252525;
+  position: absolute;
+  bottom: 350px;
+  /* background: url(../Bilder/Ziegelstein.png); */ 
+  /* animation: boing infinite 5s; */
+}
+
+.schornstein {
+  right: 300px;
+}
+.schornstein2 {
+  left: 0px;
+}
+
+@keyframes boing {
+  50% {
+    transform: scale(1.4);
+  }
+}
+
+@keyframes wolkig {
+  0% {
+    transform: translateX(-300px);
+  }
+
+  100% {
+    transform: translateX(2000px);
+  }
+}
+
+/* wolke */
+
+.wolkencontainer {
+  position: absolute;
+  top: 150px;
+  left: 150px;
+  animation: wolkig infinite 300s;
+}
+
+.wolke {
+  width: 200px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+
+  box-shadow: 40px 20px 0 0 rgba(255, 255, 255, 0.8),
+    80px 10px 0 0 rgba(255, 255, 255, 0.6),
+    120px 30px 0 0 rgba(255, 255, 255, 0.4),
+    150px 0 0 0 rgba(255, 255, 255, 0.5);
+}
+
+.wolke::before,
+.wolke::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.wolke::before {
+  width: 120px;
+  height: 120px;
+  top: -40px;
+  left: 30px;
+}
+
+.wolke::after {
+  width: 160px;
+  height: 160px;
+  top: -80px;
+  left: -30px;
+}
+a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: red;
+    transition: 0.3s;
+    text-decoration: underline;
+  }
+}
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+}
