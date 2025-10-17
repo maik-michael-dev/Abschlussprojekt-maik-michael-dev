@@ -42,17 +42,29 @@ body {
   }
 }
 
-.roof {
+/*.roof {
   width: 420px;
   height: 70px;
   clip-path: polygon(40% 0%, 100% 100%, 0% 100%);
   position: relative;
   background: url(../Bilder/holzfassade.jpg) repeat center;
   background-size: 30%;
+}*/
+
+.roof {
+  width: 620px;
+  height: 70px;
+  background-color: #252525;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  position: relative;
+  background: url(../Bilder/holzfassade.jpg);
+  background-size: 10%;
+  transform: translateX(0px);
+  z-index: 2;
 }
 
 .Rechte-Ansicht {
-  width: 400px;
+  width: 500px;
   height: 250px;
   background: url(../Bilder/holzfassade.jpg) repeat center; /* Wandfarbe */
   background-size: 30%;
@@ -94,7 +106,7 @@ a {
   justify-content: space-between;
 }
 
-.dach {
+/*.dach {
   position: absolute;
   top: 0;
   left: 50%;
