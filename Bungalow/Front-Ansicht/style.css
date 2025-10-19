@@ -129,16 +129,6 @@ body {
   background-size: cover;
 }
 
-.pagination {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30vw;
-  display: flex;
-  justify-content: space-between;
-}
-
 .window-Wohnzimmer1,
 .window-Wohnzimmer2,
 .window-Wohnzimmer3,
@@ -150,14 +140,50 @@ body {
   background-size: cover;
 }
 
-a {
-  font-size: 2rem;
+a.DachTop,
+a.Left,
+a.Right,
+a.InnenansichtBottom {
+  position: fixed;
+  font-size: 1.5rem;
   text-decoration: none;
   color: black;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 999;
+  transition: all 0.3s;
 }
 
-a:hover {
+a.DachTop:hover,
+a.Left:hover,
+a.Right:hover,
+a.InnenansichtBottom:hover {
   color: red;
-  transition: 0.3s;
-  text-decoration: underline;
+  background: white;
+  transform: scale(1.1);
+}
+
+.DachTop {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Left {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Right {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.InnenansichtBottom {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 80px;
 }

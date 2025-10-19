@@ -837,3 +837,51 @@ div {
   font-size: 16px;
   font-weight: bold;
 }
+
+a.Front,
+a.Left,
+a.Right,
+a.behind {
+  position: fixed;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 999;
+  transition: all 0.3s;
+}
+
+a.Front:hover,
+a.Left:hover,
+a.Right:hover,
+a.behind:hover {
+  color: red;
+  background: white;
+  transform: translateX(-50%) scale(1.1);
+}
+
+.Front {
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Left {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Right {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.behind {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+}

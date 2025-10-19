@@ -141,24 +141,50 @@ body {
   top: -80px;
   left: -30px;
 }
-a {
-  font-size: 2rem;
+a.Innenansicht,
+a.Left,
+a.Right,
+a.Dach {
+  position: fixed;
+  font-size: 1.5rem;
   text-decoration: none;
   color: black;
-
-  &:hover {
-    color: red;
-    transition: 0.3s;
-    text-decoration: underline;
-  }
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 999;
+  transition: all 0.3s;
 }
 
-.pagination {
-  position: absolute;
-  bottom: 0;
+a.Innenansicht:hover,
+a.Left:hover,
+a.Right:hover,
+a.Dach:hover {
+  color: red;
+  background: white;
+  transform: scale(1.1);
+}
+
+.Innenansicht {
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
-  width: 30vw;
-  display: flex;
-  justify-content: space-between;
+}
+
+.Left {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Right {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Dach {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
 }

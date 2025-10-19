@@ -55,41 +55,52 @@ body {
   right: 400px;
 }
 
-a {
+a.FrontTop,
+a.LeftPos,
+a.RightPos,
+a.BehindBottom {
+  position: fixed;
+  font-size: 1.5rem;
   text-decoration: none;
-  font-size: 2rem;
   color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
-
-  &:hover {
-    color: red;
-    text-decoration: underline;
-  }
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 999;
+  transition: all 0.3s;
 }
 
-.Front {
-  top: 0;
+a.FrontTop:hover,
+a.LeftPos:hover,
+a.RightPos:hover,
+a.BehindBottom:hover {
+  color: red;
+  background: white;
+  transform: scale(1.1);
+}
+
+.FrontTop {
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.Left {
-  left: 0;
+.LeftPos {
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.Right {
-  right: 0;
+.RightPos {
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.behind {
+.BehindBottom {
   left: 50%;
   transform: translateX(-50%);
-  bottom: 0;
+  bottom: 20px;
 }
 
 .fenster {

@@ -28,14 +28,14 @@ body {
   flex-direction: column;
 
   &::before {
-    content: "Vorne =>";
+    /*content: "Vorne =>";*/
     position: absolute;
     left: 0;
     font-size: 5rem;
   }
 
   &::after {
-    content: "<= Hinten";
+    /*content: "<= Hinten";*/
     position: absolute;
     right: 0;
     font-size: 5rem;
@@ -84,31 +84,42 @@ body {
   border: 4px solid white; /* Fensterrahmen */
 }
 
-a {
-  font-size: 2rem;
+a.DachTop,
+a.BehindRight,
+a.FrontLeft {
+  position: fixed;
+  font-size: 1.5rem;
   text-decoration: none;
   color: black;
-
-  &:hover {
-    color: red;
-    transition: 0.3s;
-    text-decoration: underline;
-  }
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 999;
+  transition: all 0.3s;
 }
 
-.pagination {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30vw;
-  display: flex;
-  justify-content: space-between;
+a.DachTop:hover,
+a.BehindRight:hover,
+a.FrontLeft:hover {
+  color: red;
+  background: white;
+  transform: scale(1.1);
 }
 
-/*.dach {
-  position: absolute;
-  top: 0;
+.DachTop {
   left: 50%;
   transform: translateX(-50%);
+  top: 20px;
+}
+
+.BehindRight {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.FrontLeft {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
