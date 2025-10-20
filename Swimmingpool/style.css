@@ -65,15 +65,14 @@ body {
   - Setzt den z-index auf 10, um es vor anderen Elementen zu platzieren.*/
 
 #Blumentopf {
-  width: 1.2cm;
-  height: 1.2cm;
+  width: 1cm;
+  height: 1cm;
   background-image: url(Blume.jpeg);
   background-size: cover;
   background-position: center;
   position: absolute;
-  top: 2.5cm;
-  left: 0.5cm;
-  border-radius: 50%;
+  right: 0;
+  bottom: 0;
   z-index: 10;
 }
 
@@ -140,6 +139,6 @@ body {
   background-size: cover;
   background-position: center;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  top: 83px;
+  left: 0px;
 }
