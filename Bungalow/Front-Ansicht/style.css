@@ -15,33 +15,34 @@ body {
     blue,
     violet
   );
-}
-
-.bungalow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.roof {
-  width: 1100px;
-  height: 100px;
-  background: url(../Bilder/schindeln.webp) center;
-  background-size: contain;
   overflow: hidden;
   position: relative;
 }
 
 .roof-windows {
   position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(calc(-50% - 2px));
+  right: 517px;
+  top: 374px;
+  transform: translateY(calc(-50%));
   display: flex;
   gap: 4px;
   background: white;
   padding: 4px;
   width: 376px;
+  z-index: 20;
+}
+/* Linkes Dachstück neben den Dachfenstern */
+.roof-left {
+  position: absolute;
+  top: 305px;
+  left: 515px;
+  width: 1100px;
+  height: 120px;
+  background: url(../Bilder/Dachfenster\ Schlafzimmer.\ jpeg) repeat-x left, 
+              url(../Bilder/schindeln.webp) repeat-x left, #7a5c3a;
+  background-size: cover, 120px 120px, auto;
+  z-index: 2;
+  border-bottom: 0px solid #5a3c1a;
 }
 
 .roof-windows div {
@@ -50,6 +51,8 @@ body {
   background: url(../Bilder/Wintergarten.jpg) center;
   background-size: cover;
   border: 2px solid white;
+  position: relative;
+  z-index: 10;
 }
 
 .Frontansicht {
@@ -59,7 +62,7 @@ body {
   position: relative;
 }
 
-.door {
+ .door {
   width: 90px;
   height: 180px;
   background: #909090;
@@ -119,15 +122,7 @@ body {
   padding: 4px;
 }
 
-.window-Wohnzimmer1,
-.window-Wohnzimmer2,
-.window-Wohnzimmer3,
-.window-Wohnzimmer4 {
-  width: 90px;
-  height: 230px;
-  background: url(../Bilder/Wintergarten.jpg) center;
-  background-size: cover;
-}
+
 
 .window-Wohnzimmer1,
 .window-Wohnzimmer2,
@@ -186,4 +181,14 @@ a.InnenansichtBottom:hover {
   left: 50%;
   transform: translateX(-50%);
   bottom: 80px;
+}
+
+/*.window-Wohnzimmer1,
+.window-Wohnzimmer2,
+.window-Wohnzimmer3,
+.window-Wohnzimmer4 {
+  width: 90px;
+  height: 230px;
+  background: url(../Bilder/Wintergarten.jpg) center;
+  background-size: cover;
 }
