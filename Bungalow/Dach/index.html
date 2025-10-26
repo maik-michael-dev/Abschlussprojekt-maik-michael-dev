@@ -56,6 +56,11 @@
     <button id="showArticlesBtn" class="btn-articles" aria-expanded="false">Materialien anzeigen</button>
     <div id="articlesList" class="articles-box" hidden aria-live="polite"></div>
 
+  <!-- Bungalow description (left side) -->
+  <div id="bungalowBeschreibung" class="bungalow-beschreibung-box" aria-live="polite"></div>
+    <button id="showBungalowArticlesBtn" class="btn-bungalow-articles" aria-expanded="false">Materialien anzeigen</button>
+    <div id="bungalowArticlesList" class="bungalow-articles-box" hidden aria-live="polite"></div>
+
     <a href="../Front-Ansicht/index.html" class="FrontTop">Vorderansicht</a>
     <a href="../Rechte-Ansicht/index.html" class="LeftPos">Rechte Seite</a>
     <a href="../Left-Side/index.html" class="RightPos">Linke Seite</a>
@@ -140,6 +145,100 @@
           descEl.hidden = false;
           btn.textContent = 'Materialien anzeigen';
           btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    </script>
+    <script type="module">
+      import bungalowBeschreibung from './bungalow-beschreibung.js';
+
+      const bDescEl = document.getElementById('bungalowBeschreibung');
+      const bBtn = document.getElementById('showBungalowArticlesBtn');
+      const bArticlesEl = document.getElementById('bungalowArticlesList');
+
+      if (bDescEl) bDescEl.innerHTML = `<h3>Bungalow</h3><p>${bungalowBeschreibung.trim().replace(/\n/g, '<br>')}</p>`;
+
+      const bungalowMaterials = {
+        'Dachbedeckungen': [
+          'Tonziegel klassisch',
+          'Betondachstein anthrazit',
+          'Dachziegel glasiert',
+          'Metallstehfalz (Blech)',
+          'Schieferplatten (Naturstein)',
+          'Bitumen-Schindeln',
+          'Trapezblech (Profilblech)',
+          'Faserzement-Schindeln',
+          'Kunststoff-Dachplatten (Polycarbonat)',
+          'Gründach-Substrat (extensive Begrünung)'
+        ],
+        'Solarplattenarten': [
+          'Monokristalline Solarmodule',
+          'Polykristalline Solarmodule',
+          'Dünnschichtmodule (CIGS)',
+          'Glas-Glas-Module',
+          'Bifaciale Solarmodule',
+          'Gebäudeintegrierte Photovoltaik (BIPV)',
+          'Flexible Dünnschichtmodule',
+          'PERC-Module',
+          'Half-cut / halbgeschnittene Zellen-Module',
+          'Module mit Leistungselektronik (Optimierer)'
+        ],
+        'Dachfensterarten': [
+          'Klapp-Schwingfenster',
+          'Schwingfenster',
+          'Festverglaste Dachfenster',
+          'Öffnungsfenster mit RWA (Rauch-Wärme-Abzug)',
+          'Dachausstiegsfenster (Notausstieg)',
+          'Elektrisch gesteuertes Dachfenster',
+          'Dachfenster mit Außenrollladen',
+          'Dachfenster mit Verdunkelungsrollo',
+          'Schallschutz-Dachfenster',
+          'Dachfenster mit Isolierverglasung'
+        ],
+        'Wintergartenfensterarten': [
+          'Isolierglas-Festverglasung',
+          'Schiebe-Fensterelemente',
+          'Hebe-Schiebe-Türen',
+          'Klapp-Schiebe-Elemente',
+          'Panorama-Fenster',
+          'Rahmenlose Glas-Fassaden',
+          'Holz-Alu Fenster mit Isolierverglasung',
+          'Aluminium-Rahmenkonstruktionen',
+          'Wärmedämmende Verglasung (low-e)',
+          'Beschattete Verglasungs-Systeme (integrierte Jalousien)'
+        ]
+      };
+
+      function renderBungalowMaterials() {
+        bArticlesEl.innerHTML = '';
+        for (const [cat, items] of Object.entries(bungalowMaterials)) {
+          const section = document.createElement('section');
+          const h = document.createElement('h4');
+          h.textContent = cat;
+          section.appendChild(h);
+          const ul = document.createElement('ul');
+          for (const it of items) {
+            const li = document.createElement('li');
+            li.textContent = it;
+            ul.appendChild(li);
+          }
+          section.appendChild(ul);
+          bArticlesEl.appendChild(section);
+        }
+      }
+
+      bBtn.addEventListener('click', () => {
+        const showing = !bArticlesEl.hidden;
+        if (!showing) {
+          renderBungalowMaterials();
+          bArticlesEl.hidden = false;
+          bDescEl.hidden = true;
+          bBtn.textContent = 'Beschreibung';
+          bBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          bArticlesEl.hidden = true;
+          bDescEl.hidden = false;
+          bBtn.textContent = 'Materialien anzeigen';
+          bBtn.setAttribute('aria-expanded', 'false');
         }
       });
     </script>
