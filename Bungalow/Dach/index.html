@@ -52,10 +52,96 @@
       <div class="tisch"></div>
     </div>
 
+  <div id="pergolaBeschreibung" class="beschreibung-box" aria-live="polite"></div>
+    <button id="showArticlesBtn" class="btn-articles" aria-expanded="false">Materialien anzeigen</button>
+    <div id="articlesList" class="articles-box" hidden aria-live="polite"></div>
+
     <a href="../Front-Ansicht/index.html" class="FrontTop">Vorderansicht</a>
     <a href="../Rechte-Ansicht/index.html" class="LeftPos">Rechte Seite</a>
     <a href="../Left-Side/index.html" class="RightPos">Linke Seite</a>
     <a href="../Rückseite/index.html" class="BehindBottom">Rückansicht</a>
     <script src="script.js"></script>
+    <script type="module">
+      import beschreibung from './pergola-beschreibung.js';
+
+      const descEl = document.getElementById('pergolaBeschreibung');
+      const btn = document.getElementById('showArticlesBtn');
+      const articlesEl = document.getElementById('articlesList');
+
+      if (descEl) descEl.innerHTML = `<h3>Pergola</h3><p>${beschreibung.trim().replace(/\n/g, '<br>')}</p>`;
+
+      const materials = {
+        'Wintergartenfenster': [
+          'Isolierglas-Wintergartenfenster 120x80',
+          'Schiebe-Fensterelement 200x220',
+          'Aluminium-Rahmenfenster',
+          'Holz-Alu-Kippfenster',
+          'Beschattungsrollo für Wintergarten',
+          'Dichtungs-Set für Wintergartenfenster',
+          'Sicherheitsverriegelung',
+          'Wärmedämmende Verglasung',
+          'Lüftungsflügel mit Automatik',
+          'Wartungsset für Fenster'
+        ],
+        'Dachfenster': [
+          'Klapp-Schwingfenster 78x98',
+          'Dachfenster mit elektrischer Steuerung',
+          'Einfachverglasung',
+          'Verdunkelungsrollo',
+          'Notausstieg-Fenster',
+          'Montagerahmen inkl. Dichtungen',
+          'Insektenschutz-Rollo',
+          'Schallschutz-Verglasung',
+          'Wartungs-Kit für Dachfenster',
+          'Regenabweisender Außenrahmen'
+        ],
+        'Dachbedeckungen': [
+          'Tonziegel klassisch',
+          'Betondachstein anthrazit',
+          'Metallblechprofil (stehfalz)',
+          'Dachschindeln Faserzement',
+          'Bitumen-Schindeln',
+          'Gründach-Substrat (leicht)',
+          'Unterspannbahn diffusionsoffen',
+          'Traufblech und Firstabschluss',
+          'Dämmmatte für Dämmung',
+          'Montageklammern & Schrauben'
+        ]
+      };
+
+      function renderMaterials() {
+        articlesEl.innerHTML = '';
+        for (const [cat, items] of Object.entries(materials)) {
+          const section = document.createElement('section');
+          const h = document.createElement('h4');
+          h.textContent = cat;
+          section.appendChild(h);
+          const ul = document.createElement('ul');
+          for (const it of items) {
+            const li = document.createElement('li');
+            li.textContent = it;
+            ul.appendChild(li);
+          }
+          section.appendChild(ul);
+          articlesEl.appendChild(section);
+        }
+      }
+
+      btn.addEventListener('click', () => {
+        const showing = !articlesEl.hidden;
+        if (!showing) {
+          renderMaterials();
+          articlesEl.hidden = false;
+          descEl.hidden = true;
+          btn.textContent = 'Beschreibung';
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          articlesEl.hidden = true;
+          descEl.hidden = false;
+          btn.textContent = 'Materialien anzeigen';
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    </script>
   </body>
 </html>

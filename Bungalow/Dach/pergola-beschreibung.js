@@ -1,5 +1,5 @@
 // Beschreibung der Pergola (auf Deutsch)
-const beschreibung = `
+const pergolaBeschreibungText = `
 Die Pergola ergänzt den Außenbereich als leichtes, 
 offenes Dachtragwerk und schafft eine geschützte, 
 zugleich luftige Zone zwischen Haus und Garten. 
@@ -38,4 +38,5 @@ Die Pergola verbindet
 Funktion mit Wohnlichkeit und 
 lädt zu gemütlichen Stunden im Freien ein.`;
 
-export default beschreibung;
+export default pergolaBeschreibungText;
+
