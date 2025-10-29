@@ -68,6 +68,7 @@
     <script src="script.js"></script>
     <script type="module">
       import beschreibung from './pergola-beschreibung.js';
+      import { pergolaMaterials, renderMaterialsInto } from './materials.js';
 
       const descEl = document.getElementById('pergolaBeschreibung');
       const btn = document.getElementById('showArticlesBtn');
@@ -76,18 +77,18 @@
       if (descEl) descEl.innerHTML = `<h3>Pergola</h3><p>${beschreibung.trim().replace(/\n/g, '<br>')}</p>`;
 
       const materials = {
-        'Wintergartenfenster': [
-          'Isolierglas-Wintergartenfenster 120x80',
-          'Schiebe-Fensterelement 200x220',
-          'Aluminium-Rahmenfenster',
-          'Holz-Alu-Kippfenster',
-          'Beschattungsrollo für Wintergarten',
-          'Dichtungs-Set für Wintergartenfenster',
-          'Sicherheitsverriegelung',
-          'Wärmedämmende Verglasung',
-          'Lüftungsflügel mit Automatik',
-          'Wartungsset für Fenster'
-        ],
+          'Wintergartenfenster': [
+            'Isolierglas-Wintergartenfenster 120x80',
+            'Schiebe-Fensterelement 200x220',
+            'Aluminium-Rahmenfenster',
+            'Holz-Alu-Kippfenster',
+            'Beschattungsrollo für Wintergarten',
+            'Dichtungs-Set für Wintergartenfenster',
+            'Sicherheitsverriegelung',
+            'Wärmedämmende Verglasung',
+            'Lüftungsflügel mit Automatik',
+            'Wartungsset für Fenster'
+          ],
         'Dachfenster': [
           'Klapp-Schwingfenster 78x98',
           'Dachfenster mit elektrischer Steuerung',
@@ -113,29 +114,12 @@
           'Montageklammern & Schrauben'
         ]
       };
-
-      function renderMaterials() {
-        articlesEl.innerHTML = '';
-        for (const [cat, items] of Object.entries(materials)) {
-          const section = document.createElement('section');
-          const h = document.createElement('h4');
-          h.textContent = cat;
-          section.appendChild(h);
-          const ul = document.createElement('ul');
-          for (const it of items) {
-            const li = document.createElement('li');
-            li.textContent = it;
-            ul.appendChild(li);
-          }
-          section.appendChild(ul);
-          articlesEl.appendChild(section);
-        }
-      }
-
+      
       btn.addEventListener('click', () => {
         const showing = !articlesEl.hidden;
         if (!showing) {
-          renderMaterials();
+          // beim Anzeigen die pergola-spezifischen Materialien rendern
+          renderMaterialsInto(articlesEl, pergolaMaterials);
           articlesEl.hidden = false;
           descEl.hidden = true;
           btn.textContent = 'Beschreibung';
@@ -150,6 +134,7 @@
     </script>
     <script type="module">
       import bungalowBeschreibung from './bungalow-beschreibung.js';
+      import { bungalowMaterials, renderMaterialsInto } from './materials.js';
 
       const bDescEl = document.getElementById('bungalowBeschreibung');
       const bBtn = document.getElementById('showBungalowArticlesBtn');
@@ -157,79 +142,10 @@
 
       if (bDescEl) bDescEl.innerHTML = `<h3>Bungalow</h3><p>${bungalowBeschreibung.trim().replace(/\n/g, '<br>')}</p>`;
 
-      const bungalowMaterials = {
-        'Dachbedeckungen': [
-          'Tonziegel klassisch',
-          'Betondachstein anthrazit',
-          'Dachziegel glasiert',
-          'Metallstehfalz (Blech)',
-          'Schieferplatten (Naturstein)',
-          'Bitumen-Schindeln',
-          'Trapezblech (Profilblech)',
-          'Faserzement-Schindeln',
-          'Kunststoff-Dachplatten (Polycarbonat)',
-          'Gründach-Substrat (extensive Begrünung)'
-        ],
-        'Solarplattenarten': [
-          'Monokristalline Solarmodule',
-          'Polykristalline Solarmodule',
-          'Dünnschichtmodule (CIGS)',
-          'Glas-Glas-Module',
-          'Bifaciale Solarmodule',
-          'Gebäudeintegrierte Photovoltaik (BIPV)',
-          'Flexible Dünnschichtmodule',
-          'PERC-Module',
-          'Half-cut / halbgeschnittene Zellen-Module',
-          'Module mit Leistungselektronik (Optimierer)'
-        ],
-        'Dachfensterarten': [
-          'Klapp-Schwingfenster',
-          'Schwingfenster',
-          'Festverglaste Dachfenster',
-          'Öffnungsfenster mit RWA (Rauch-Wärme-Abzug)',
-          'Dachausstiegsfenster (Notausstieg)',
-          'Elektrisch gesteuertes Dachfenster',
-          'Dachfenster mit Außenrollladen',
-          'Dachfenster mit Verdunkelungsrollo',
-          'Schallschutz-Dachfenster',
-          'Dachfenster mit Isolierverglasung'
-        ],
-        'Wintergartenfensterarten': [
-          'Isolierglas-Festverglasung',
-          'Schiebe-Fensterelemente',
-          'Hebe-Schiebe-Türen',
-          'Klapp-Schiebe-Elemente',
-          'Panorama-Fenster',
-          'Rahmenlose Glas-Fassaden',
-          'Holz-Alu Fenster mit Isolierverglasung',
-          'Aluminium-Rahmenkonstruktionen',
-          'Wärmedämmende Verglasung (low-e)',
-          'Beschattete Verglasungs-Systeme (integrierte Jalousien)'
-        ]
-      };
-
-      function renderBungalowMaterials() {
-        bArticlesEl.innerHTML = '';
-        for (const [cat, items] of Object.entries(bungalowMaterials)) {
-          const section = document.createElement('section');
-          const h = document.createElement('h4');
-          h.textContent = cat;
-          section.appendChild(h);
-          const ul = document.createElement('ul');
-          for (const it of items) {
-            const li = document.createElement('li');
-            li.textContent = it;
-            ul.appendChild(li);
-          }
-          section.appendChild(ul);
-          bArticlesEl.appendChild(section);
-        }
-      }
-
       bBtn.addEventListener('click', () => {
         const showing = !bArticlesEl.hidden;
         if (!showing) {
-          renderBungalowMaterials();
+          renderMaterialsInto(bArticlesEl, bungalowMaterials);
           bArticlesEl.hidden = false;
           bDescEl.hidden = true;
           bBtn.textContent = 'Beschreibung';
