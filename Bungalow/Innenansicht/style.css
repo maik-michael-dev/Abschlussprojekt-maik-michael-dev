@@ -38,6 +38,45 @@ div {
   position: relative;
 }
 
+/* Beschreibung-Box (kopiert aus Dach/style.css für konsistente Darstellung) */
+.beschreibung-box {
+  position: absolute;
+  right: 40px;
+  top: 240px;
+  width: 320px;
+  max-height: 400px;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-size: 14px;
+  line-height: 1.4;
+  z-index: 50;
+}
+
+.beschreibung-box h3 { margin-top: 0; }
+
+.bungalow-beschreibung-box {
+  position: absolute;
+  left: 40px;
+  top: 240px;
+  width: 320px;
+  max-height: 420px;
+  overflow: auto;
+  background: rgba(255,255,255,0.95);
+  color: #111;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-size: 14px;
+  line-height: 1.4;
+  z-index: 50;
+}
+
 .schafzimmer {
   width: 500px;
   height: 300px;

@@ -98,6 +98,20 @@
     </div>
   </div>
 
+  <!-- Beschreibung-Boxen (wie im Dach/Vogelperspektive) -->
+  <div id="bungalowBeschreibung" class="bungalow-beschreibung-box" aria-live="polite"></div>
+  <div id="pergolaBeschreibung" class="beschreibung-box" aria-live="polite"></div>
+
+  <script type="module">
+    import bungalowBeschreibung from '../Dach/bungalow-beschreibung.js';
+    import pergolaBeschreibung from '../Dach/pergola-beschreibung.js';
+
+    const bDescEl = document.getElementById('bungalowBeschreibung');
+    const pDescEl = document.getElementById('pergolaBeschreibung');
+
+    if (bDescEl) bDescEl.innerHTML = `<h3>Bungalow</h3><p>${bungalowBeschreibung.trim().replace(/\n/g, '<br>')}</p>`;
+    if (pDescEl) pDescEl.innerHTML = `<h3>Pergola</h3><p>${pergolaBeschreibung.trim().replace(/\n/g, '<br>')}</p>`;
+  </script>
   <script src="./main.js"></script>
 
    <a href="../Front-Ansicht/index.html" class="Front">Vorderansicht</a>
