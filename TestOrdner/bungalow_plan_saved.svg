@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="500" viewBox="0 0 700 500">
+  <style>
+    .wall{fill:#ffffff;stroke:#000000;stroke-width:4}
+    .room-label{font-family:Arial, Helvetica, sans-serif;font-size:14px;fill:#111}
+    .dim{font-family:Arial, Helvetica, sans-serif;font-size:12px;fill:#333}
+    .thin{stroke:#333;stroke-width:1}
+  </style>
+
+  <!-- Maßstab: 50 px = 1 m -->
+  <!-- Hauptleiste: 11 m x 3 m (oben) -->
+  <rect class="wall" x="0" y="0" width="550" height="150"/>
+
+  <!-- Schlafzimmer: 5 m x 3 m (links oben) - wurde mit Küche vertauscht -->
+  <rect class="wall" x="0" y="0" width="250" height="150"/>
+  <text x="10" y="25" class="room-label">Schlafz.</text>
+  <text x="10" y="45" class="dim">5 m × 3 m</text>
+
+  <!-- Küche: 3 m x 3 m (neben Schlafzimmer) -->
+  <rect class="wall" x="250" y="0" width="150" height="150"/>
+  <text x="260" y="25" class="room-label">Küche</text>
+  <text x="260" y="45" class="dim">3 m × 3 m</text>
+
+  <!-- Bad: 3 m x 2 m (unter Schlafzimmer) - Größe angepasst -->
+  <rect class="wall" x="0" y="150" width="150" height="100"/>
+  <text x="10" y="190" class="room-label">Bad</text>
+  <text x="10" y="210" class="dim">3 m × 2 m</text>
+
+  <!-- Pergola: 5 m x 3 m (südlich von Bad und Eingang) - unter Bad & Eingang platziert -->
+  <rect x="0" y="250" width="250" height="150" fill="#f6f6f6" stroke="#ccc" stroke-width="1"/>
+  <text x="10" y="275" class="room-label">Pergola</text>
+  <text x="10" y="295" class="dim">5 m × 3 m</text>
+
+  <!-- Holzverbindung: Brücke zwischen Pergola und Wintergarten (2 m × 1 m) und Erweiterung 1 m × 3 m rechts neben Pergola -->
+  <!-- Vertikale Erweiterung: rechts neben Pergola (1 m × 2 m) -->
+  <!-- linke Kante der Erweiterung = Pergola-Rechtskante (x=250), unten bündig mit Pergola (bottom y=400) -->
+  <rect x="250" y="300" width="50" height="100" fill="#8B5A2B" stroke="#5c3b1a" stroke-width="2"/>
+  <text x="255" y="315" class="room-label">Holz-Boden-Verbindung-2</text>
+  <text x="255" y="330" class="dim">1 m × 2 m</text>
+  <!-- Horizontale Brücke (verbindet zur Pergola/Wintergarten): 2 m × 1 m; genau zwischen Pergola und Wintergarten -->
+  <!-- spans x 250..350 (fills the gap) and vertically centered between Pergola top (y=250) and Wintergarten bottom (y=300) -->
+  <rect x="250" y="250" width="100" height="50" fill="#8B5A2B" stroke="#5c3b1a" stroke-width="2"/>
+  <text x="260" y="275" class="room-label">Holz-Boden-Verbindung-1</text>
+  <text x="260" y="290" class="dim">2 m × 1 m</text>
+
+  <!-- Wohnzimmer (oben rechts): 3 m × 3 m (verkleinert) -->
+  <rect class="wall" x="400" y="0" width="150" height="150"/>
+  <text x="410" y="20" class="room-label">Wohnzimmer</text>
+  <text x="410" y="40" class="dim">3 m × 3 m</text>
+
+  <!-- Eingang: rechts neben dem Bad (3 m × 2 m) - verkleinert -->
+  <rect x="150" y="150" width="150" height="100" fill="#f6f6f6" stroke="#000" stroke-width="2"/>
+  <text x="160" y="185" class="room-label">Eingang</text>
+  <text x="160" y="205" class="dim">3 m × 2 m</text>
+
+  <!-- Aquarium: 1 m × 2 m direkt unter der Küche (oben bündig mit Unterkante Küche) -->
+  <rect x="300" y="150" width="50" height="100" fill="#99ddff" stroke="#0077aa" stroke-width="2"/>
+  <text x="305" y="175" class="room-label">Aquarium</text>
+  <text x="305" y="190" class="dim">1 m × 2 m</text>
+
+  <!-- Wintergarten: 4 m × 3 m unter dem Wohnzimmer -->
+  <rect x="350" y="150" width="200" height="150" fill="#e6ffe6" stroke="#228822" stroke-width="2"/>
+  <text x="360" y="180" class="room-label">Wintergarten</text>
+  <text x="360" y="200" class="dim">4 m × 3 m</text>
+
+  <!-- Hilfsachsen / Maße -->
+  <!-- Horizontale Gesamtmaß 11 m -->
+  <line class="thin" x1="0" y1="470" x2="550" y2="470" />
+  <line class="thin" x1="0" y1="465" x2="0" y2="475" />
+  <line class="thin" x1="550" y1="465" x2="550" y2="475" />
+  <text x="260" y="490" class="dim">Gesamtlänge 11 m</text>
+
+  <!-- Vertikale Gesamttiefe (max 6 m wegen Wohnzimmer) -->
+  <line class="thin" x1="630" y1="0" x2="630" y2="450" />
+  <line class="thin" x1="625" y1="0" x2="635" y2="0" />
+  <line class="thin" x1="625" y1="450" x2="635" y2="450" />
+  <text x="640" y="230" class="dim" transform="rotate(90 640,230)">Max. Tiefe 6 m (Wohnzimmer)</text>
+
+  <!-- Kleine Beschriftungen bei Raumgrenzen (m) -->
+  <text x="125" y="140" class="dim">5 m</text>
+  <text x="325" y="140" class="dim">3 m</text>
+    <text x="475" y="140" class="dim">3 m</text>
+  <text x="525" y="140" class="dim">1 m</text>
+  <text x="525" y="320" class="dim">3 m</text>
+
+  <!-- Skala unten links -->
+  <rect x="10" y="420" width="150" height="30" fill="#fff" stroke="#ccc" />
+  <text x="15" y="440" class="dim">Maßstab: 50 px = 1 m</text>
+
+</svg>
+ 
