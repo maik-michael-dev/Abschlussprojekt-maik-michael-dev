@@ -53,6 +53,10 @@
   <text x="160" y="185" class="room-label">Eingang</text>
   <text x="160" y="205" class="dim">3 m × 2 m</text>
 
+  <!-- Eingangstür: unten rechts zwischen Pergola und Aquarium -->
+  <rect x="270" y="240" width="30" height="10" fill="#5c3b1a" stroke="#3b220f" stroke-width="2"/>
+  <text x="275" y="252" class="room-label">Eingangstür</text>
+
   <!-- Aquarium: 1 m × 2 m direkt unter der Küche (oben bündig mit Unterkante Küche) -->
   <rect x="300" y="150" width="50" height="100" fill="#99ddff" stroke="#0077aa" stroke-width="2"/>
   <text x="305" y="175" class="room-label">Aquarium</text>
