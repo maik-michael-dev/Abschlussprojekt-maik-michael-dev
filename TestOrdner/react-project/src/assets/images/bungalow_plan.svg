@@ -7,90 +7,7 @@
     .thin{stroke:#333;stroke-width:1}
   </style>
   <!-- Interactivity: toggle doors open/closed by clicking the hinge -->
-  <script type="text/ecmascript"><![CDATA[
-    function setButtonLabel(){
-      try{
-        var btn = document.getElementById('door-toggle-btn-text');
-        if(!btn) return;
-        var anyOpen = areAnyDoorsOpen();
-        btn.textContent = anyOpen ? 'Tür-schließen' : 'Tür-öffnen';
-      }catch(e){console.log(e);}    
-    }
-
-    function areAnyDoorsOpen(){
-      var ids = ['kitchen','bed','bath','living','entry'];
-      for(var i=0;i<ids.length;i++){
-        var leaf = document.getElementById('door-'+ids[i]+'-leaf');
-        if(leaf){
-          var state = leaf.getAttribute('data-state') || 'open';
-          if(state==='open') return true;
-        }
-      }
-      return false;
-    }
-
-    function toggleDoor(name){
-      try{
-        var leaf = document.getElementById('door-'+name+'-leaf');
-        var arc = document.getElementById('door-'+name+'-arc');
-        if(!leaf) return;
-        var x1 = leaf.getAttribute('x1'), y1 = leaf.getAttribute('y1');
-        var openX2 = leaf.getAttribute('data-open-x2');
-        var openY2 = leaf.getAttribute('data-open-y2');
-        if(!openX2) openX2 = leaf.getAttribute('x2');
-        if(!openY2) openY2 = leaf.getAttribute('y2');
-        var state = leaf.getAttribute('data-state') || 'open';
-        if(state==='open'){
-          // close: collapse to hinge
-          leaf.setAttribute('x2', x1);
-          leaf.setAttribute('y2', y1);
-          leaf.setAttribute('data-state','closed');
-          if(arc) arc.setAttribute('display','none');
-        } else {
-          // open: restore
-          leaf.setAttribute('x2', openX2);
-          leaf.setAttribute('y2', openY2);
-          leaf.setAttribute('data-state','open');
-          if(arc) arc.setAttribute('display','inline');
-        }
-        setButtonLabel();
-      }catch(e){console.log(e);}    
-    }
-
-    function toggleAllDoors(){
-      try{
-        var ids = ['kitchen','bed','bath','living','entry'];
-        var anyOpen = areAnyDoorsOpen();
-        for(var i=0;i<ids.length;i++){
-          var leaf = document.getElementById('door-'+ids[i]+'-leaf');
-          var arc = document.getElementById('door-'+ids[i]+'-arc');
-          if(!leaf) continue;
-          var x1 = leaf.getAttribute('x1'), y1 = leaf.getAttribute('y1');
-          var openX2 = leaf.getAttribute('data-open-x2') || leaf.getAttribute('x2');
-          var openY2 = leaf.getAttribute('data-open-y2') || leaf.getAttribute('y2');
-          if(anyOpen){
-            // close all
-            leaf.setAttribute('x2', x1);
-            leaf.setAttribute('y2', y1);
-            leaf.setAttribute('data-state','closed');
-            if(arc) arc.setAttribute('display','none');
-          } else {
-            // open all
-            leaf.setAttribute('x2', openX2);
-            leaf.setAttribute('y2', openY2);
-            leaf.setAttribute('data-state','open');
-            if(arc) arc.setAttribute('display','inline');
-          }
-        }
-        setButtonLabel();
-      }catch(e){console.log(e);}    
-    }
-
-    // initialize button label on load
-    document.addEventListener('DOMContentLoaded', function(){ setButtonLabel(); });
-    // also try immediate call for viewers that execute scripts after parsing
-    try{ setButtonLabel(); }catch(e){}
-  ]]></script>
+  
 
   <!-- Maßstab: 50 px = 1 m -->
   <!-- Hauptleiste: 11 m x 3 m (oben) -->
@@ -183,7 +100,7 @@
   <text x="305" y="190" class="dim">1 m × 2 m</text>
 
   <!-- Wintergarten: 4 m × 3 m unter dem Wohnzimmer -->
-  <rect x="350" y="150" width="200" height="150" fill="#e6ffe6" stroke="#228822" stroke-width="2"/>
+  <rect id="wintergarten" x="350" y="150" width="200" height="150" fill="#e6ffe6" stroke="#228822" stroke-width="2"/>
   <text x="360" y="180" class="room-label">Wintergarten</text>
   <text x="360" y="200" class="dim">4 m × 3 m</text>
 
