@@ -2,17 +2,28 @@ import React, { useState } from 'react'
 // function wird eingefügt, um einzelne objekte dar zu legen
 export default function Grundriss() {
 
+  //const [hovered, setHovered] = useState<string | null>(null)
   const [winterGrown, setWinterGrown] = useState(false)
+  const [schlafGrown, setSchlafGrown] = useState(false)
+  const [kuecheGrown, setKuecheGrown] = useState(false)
+  //const [wohnGrown, setWohnGrown] = useState(false)
+  //const [aquaGrown, setAquaGrown] = useState(false)
+  //const [flurGrown, setFlurGrown] = useState(false)
+  //const [badGrown, setBadGrown] = useState(false)
+  //const [pergoGrown, setPergoGrown] = useState(false)
 
   function klickSchlafzimmer() {
     console.log("Schlafzimmer geklickt")
+    setSchlafGrown(prev => !prev)
   }
 
-  function klickKüche() {
+  function klickKueche() {
     console.log("Küche geklickt")
+    setKuecheGrown(prev => !prev)
   }
   function klickWohnzimmer() {
     console.log("Wohnzimmer geklickt")
+    //setWohnGrown(prev => !prev)
   }
 
   function klickWintergarten() {
@@ -22,18 +33,22 @@ export default function Grundriss() {
 
   function klickAquarium() {
     console.log("Aquarium geklickt")
+    //setAquaGrown(prev => !prev)
   }
 
   function klickFlur() {
     console.log("Flur geklickt")
+    //setFlurGrown(prev => !prev)
   }
 
   function klickBad() {
     console.log("Bad geklickt")
+    //setBadGrown(prev => !prev)
   }
 
   function klickPergola() {
     console.log("Pergola")
+    //setPergoGrown(prev => !prev)
   }
 
 
@@ -60,15 +75,78 @@ export default function Grundriss() {
         {/* Schlafzimmer: 5 m x 3 m (links oben) 
         - onClick ist für die einzelnen Objekte separat zu zeigen-      
       */}
-        <rect onClick={klickSchlafzimmer} className="wall" x="0" y="0" width="250" height="150" />
-        <text x="10" y="25" className="room-label">Schlafz.</text>
-        <text x="10" y="45" className="dim">5 m × 3 m</text>
+
+        {(() => {
+  const orig = { x: 0, y: 0, w: 250, h: 150 }
+  const scale = schlafGrown ? 2 : 1
+  const w = orig.w * scale
+  const h = orig.h * scale
+  const x = orig.x - (w - orig.w) / 2
+  const y = orig.y - (h - orig.h) / 2
+
+  return (
+    <g>
+      <rect
+        onClick={klickSchlafzimmer}
+        id="schlafzimmer"
+        x={x}
+        y={y}
+        width={w}
+        height={h}
+        fill={schlafGrown ? "#F0FFF0" : "#ffffff"}
+        stroke={schlafGrown ? "#FF8C00" : "#228822"}
+        strokeWidth={schlafGrown ? 4 : 2}
+        style={{ cursor: 'pointer', transition: "all 200ms ease" }}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e: React.KeyboardEvent<SVGRectElement>) => {
+          if (e.key === 'Enter' || e.key === ' ') klickSchlafzimmer()
+        }}
+      />
+      <text x={x + 10} y={y + 30} className="room-label">Schlafz.</text>
+      <text x={x + 10} y={y + 50} className="dim">5 m × 3 m</text>
+    </g>
+  )
+})()}
+
 
         {/* Küche: 3 m x 3 m (neben Schlafzimmer) */}
-        <rect onClick={klickKüche} className="wall" x="250" y="0" width="150" height="150" />
+        <rect onClick={klickKueche} className="wall" x="250" y="0" width="150" height="150" />
         <text x="260" y="25" className="room-label">Küche</text>
         <text x="260" y="45" className="dim">3 m × 3 m</text>
 
+ {(() => {
+          const orig = { x: 250, y: 0, w: 150, h: 150 };
+          const scale = kuecheGrown ? 2 : 1;
+          const w = orig.w * scale;
+          const h = orig.h * scale;
+          const x = orig.x - (w - orig.w) / 2;
+          const y = orig.y - (h - orig.h) / 2;
+
+          return (
+            <g>
+              <rect
+                onClick={klickKueche}
+                id="kueche"
+                x={x}
+                y={y}
+                width={w}
+                height={h}
+                fill={kuecheGrown ? "#FFFDE6" : "#ffffff"}
+                stroke={kuecheGrown ? "#FF8C00" : "#000000"}
+                strokeWidth={kuecheGrown ? 4 : 2}
+                style={{ cursor: 'pointer', transition: "all 200ms ease" }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e: React.KeyboardEvent<SVGRectElement>) => {
+                  if (e.key === 'Enter' || e.key === ' ') klickKueche()
+                }}
+              />
+              <text x={x + 10} y={y + 25} className="room-label">Küche</text>
+              <text x={x + 10} y={y + 45} className="dim">3 m × 3 m</text>
+            </g>
+          )
+        })()}
         {/* Küchentür */}
         <circle cx="250" cy="150" r="2.5" fill="#3B220F" style={{ cursor: 'pointer' }} />
         <line x1="250" y1="150" x2="295" y2="150" stroke="#5C3B1A" strokeWidth="3" />
@@ -135,64 +213,64 @@ export default function Grundriss() {
         {/*Wintergarten: 4 m × 3 m unter dem Wohnzimmer */}
         {/*<rect onClick={klickWintergarten} id="wintergarten" x="350" y="150" width="200" height="150" fill="#E6FFE6" stroke="#228822" strokeWidth="2" />*/}
         {(() => {
-  const orig = { x: 350, y: 150, w: 200, h: 150 }
-  const scale = winterGrown ? 2 : 1
-  const w = orig.w * scale
-  const h = orig.h * scale
-  const x = orig.x - (w - orig.w) / 2
-  const y = orig.y - (h - orig.y) / 2
+          const orig = { x: 350, y: 150, w: 200, h: 150 }
+          const scale = winterGrown ? 2 : 1
+          const w = orig.w * scale
+          const h = orig.h * scale
+          const x = orig.x - (w - orig.w) / 2
+          const y = orig.y - (h - orig.y) / 2
 
-  return (
-    <g>
-      <rect
-        onClick={klickWintergarten}
-        id="wintergarten"
-        x={x}
-        y={y}
-        width={w}
-        height={h}
-        fill="#E6FFE6"
-        stroke={winterGrown ? "#FF8C00" : "#228822"}
-        strokeWidth={winterGrown ? 4 : 2}
-        style={{ cursor: 'pointer', transition: "all 200ms ease" }}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e: React.KeyboardEvent<SVGRectElement>) => {
-          if (e.key === 'Enter' || e.key === ' ') klickWintergarten()
-        }}
-      />
-      <text x={x + 10} y={y + 30} className="room-label">Wintergarten</text>
-      <text x={x + 10} y={y + 50} className="dim">4 m × 3 m</text>
-    </g>
-  )
-})()}
-        
+          return (
+            <g>
+              <rect
+                onClick={klickWintergarten}
+                id="wintergarten"
+                x={x}
+                y={y}
+                width={w}
+                height={h}
+                fill="#E6FFE6"
+                stroke={winterGrown ? "#FF8C00" : "#228822"}
+                strokeWidth={winterGrown ? 4 : 2}
+                style={{ cursor: 'pointer', transition: "all 200ms ease" }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e: React.KeyboardEvent<SVGRectElement>) => {
+                  if (e.key === 'Enter' || e.key === ' ') klickWintergarten()
+                }}
+              />
+              <text x={x + 10} y={y + 30} className="room-label">Wintergarten</text>
+              <text x={x + 10} y={y + 50} className="dim">4 m × 3 m</text>
+            </g>
+          )
+        })()}
 
-      {/* Hilfsachsen / Maße */ }
-      <line className="thin" x1="0" y1="470" x2="550" y2="470" />
-      <line className="thin" x1="0" y1="465" x2="0" y2="475" />
-      <line className="thin" x1="550" y1="465" x2="550" y2="475" />
-      <text x="260" y="490" className="dim">Gesamtlänge 11 m</text>
-      <line className="thin" x1="630" y1="0" x2="630" y2="450" />
-      <line className="thin" x1="625" y1="0" x2="635" y2="0" />
-      <line className="thin" x1="625" y1="450" x2="635" y2="450" />
-      <text x="640" y="230" className="dim" transform="rotate(90 640,230)">Max. Tiefe 6 m (Wohnzimmer)</text>
 
-          {/* Kleine Beschriftungen bei Raumgrenzen (m) */ }
-      <text x="125" y="140" className="dim">5 m</text>
-      <text x="325" y="140" className="dim">3 m</text>
-      <text x="475" y="140" className="dim">3 m</text>
-      <text x="525" y="140" className="dim">1 m</text>
-      <text x="525" y="320" className="dim">3 m</text>
+        {/* Hilfsachsen / Maße */}
+        <line className="thin" x1="0" y1="470" x2="550" y2="470" />
+        <line className="thin" x1="0" y1="465" x2="0" y2="475" />
+        <line className="thin" x1="550" y1="465" x2="550" y2="475" />
+        <text x="260" y="490" className="dim">Gesamtlänge 11 m</text>
+        <line className="thin" x1="630" y1="0" x2="630" y2="450" />
+        <line className="thin" x1="625" y1="0" x2="635" y2="0" />
+        <line className="thin" x1="625" y1="450" x2="635" y2="450" />
+        <text x="640" y="230" className="dim" transform="rotate(90 640,230)">Max. Tiefe 6 m (Wohnzimmer)</text>
 
-          {/* Skala unten links */ }
-      <rect x="10" y="420" width="150" height="30" fill="#fff" stroke="#ccc" />
-      <text x="15" y="440" className="dim">Maßstab: 50 px = 1 m</text>
+        {/* Kleine Beschriftungen bei Raumgrenzen (m) */}
+        <text x="125" y="140" className="dim">5 m</text>
+        <text x="325" y="140" className="dim">3 m</text>
+        <text x="475" y="140" className="dim">3 m</text>
+        <text x="525" y="140" className="dim">1 m</text>
+        <text x="525" y="320" className="dim">3 m</text>
 
-          {/* Button: Tür-öffnen (statisch, ohne Funktion) */ }
-      <rect x="170" y="420" width="140" height="30" fill="#eee" stroke="#333" rx="4" ry="4" />
-      <text x="240" y="440" textAnchor="middle" className="dim">Tür-öffnen</text>
-    </svg>
+        {/* Skala unten links */}
+        <rect x="10" y="420" width="150" height="30" fill="#fff" stroke="#ccc" />
+        <text x="15" y="440" className="dim">Maßstab: 50 px = 1 m</text>
+
+        {/* Button: Tür-öffnen (statisch, ohne Funktion) */}
+        <rect x="170" y="420" width="140" height="30" fill="#eee" stroke="#333" rx="4" ry="4" />
+        <text x="240" y="440" textAnchor="middle" className="dim">Tür-öffnen</text>
+      </svg>
 
 
     </div>
