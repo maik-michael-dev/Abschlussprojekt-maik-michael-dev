@@ -72,42 +72,41 @@ export default function Grundriss() {
         {/* Hauptleiste: 11 m x 3 m (oben) */}
         <rect className="wall" x="0" y="0" width="550" height="150" />
 
-        {/* Schlafzimmer: 5 m x 3 m (links oben) 
-        - onClick ist für die einzelnen Objekte separat zu zeigen-      
-      */}
-
+        // ...existing code...
+        {/* Schlafzimmer: 5 m x 3 m (links oben) */}
         {(() => {
-  const orig = { x: 0, y: 0, w: 250, h: 150 }
-  const scale = schlafGrown ? 2 : 1
-  const w = orig.w * scale
-  const h = orig.h * scale
-  const x = orig.x - (w - orig.w) / 2
-  const y = orig.y - (h - orig.h) / 2
+          const orig = { x: 0, y: 0, w: 250, h: 150 } // ggf. x > 0 setzen, z.B. x: 10, um Clipping zu vermeiden
+          const scale = schlafGrown ? 2 : 1
+          const w = orig.w * scale
+          const h = orig.h * scale
+          const x = orig.x - (w - orig.w) / 2
+          const y = orig.y - (h - orig.h) / 2
 
-  return (
-    <g>
-      <rect
-        onClick={klickSchlafzimmer}
-        id="schlafzimmer"
-        x={x}
-        y={y}
-        width={w}
-        height={h}
-        fill={schlafGrown ? "#F0FFF0" : "#ffffff"}
-        stroke={schlafGrown ? "#FF8C00" : "#228822"}
-        strokeWidth={schlafGrown ? 4 : 2}
-        style={{ cursor: 'pointer', transition: "all 200ms ease" }}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e: React.KeyboardEvent<SVGRectElement>) => {
-          if (e.key === 'Enter' || e.key === ' ') klickSchlafzimmer()
-        }}
-      />
-      <text x={x + 10} y={y + 30} className="room-label">Schlafz.</text>
-      <text x={x + 10} y={y + 50} className="dim">5 m × 3 m</text>
-    </g>
-  )
-})()}
+          return (
+            <g>
+              <rect
+                onClick={klickSchlafzimmer}
+                id="schlafzimmer"
+                x={x}
+                y={y}
+                width={w}
+                height={h}
+                fill={schlafGrown ? "#F0FFF0" : "#ffffff"}
+                stroke={schlafGrown ? "#FF8C00" : "#228822"}
+                strokeWidth={schlafGrown ? 4 : 2}
+                style={{ cursor: 'pointer', transition: "all 200ms ease" }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e: React.KeyboardEvent<SVGRectElement>) => {
+                  if (e.key === 'Enter' || e.key === ' ') klickSchlafzimmer()
+                }}
+              />
+              <text x={x + 10} y={y + 30} className="room-label">Schlafz.</text>
+              <text x={x + 10} y={y + 50} className="dim">5 m × 3 m</text>
+            </g>
+          )
+        })()}
+ // ...existing code...
 
 
         {/* Küche: 3 m x 3 m (neben Schlafzimmer) */}
@@ -115,7 +114,7 @@ export default function Grundriss() {
         <text x="260" y="25" className="room-label">Küche</text>
         <text x="260" y="45" className="dim">3 m × 3 m</text>
 
- {(() => {
+        {(() => {
           const orig = { x: 250, y: 0, w: 150, h: 150 };
           const scale = kuecheGrown ? 2 : 1;
           const w = orig.w * scale;
@@ -244,6 +243,59 @@ export default function Grundriss() {
             </g>
           )
         })()}
+
+         {/* Overlays: grown rooms rendered last so they appear on top */}
+        <g id="overlays">
+          {schlafGrown && (() => {
+            const orig = { x: 0, y: 0, w: 250, h: 150 }
+            const scale = 2
+            const w = orig.w * scale
+            const h = orig.h * scale
+            const x = orig.x - (w - orig.w) / 2
+            const y = orig.y - (h - orig.h) / 2
+            return (
+              <g key="overlay-schlaf">
+                <rect
+                  x={x}
+                  y={y}
+                  width={w}
+                  height={h}
+                  fill="#F0FFF0"
+                  stroke="#FF8C00"
+                  strokeWidth={4}
+                  style={{ pointerEvents: 'none' }}
+                />
+                <text x={x + 10} y={y + 30} className="room-label">Schlafz.</text>
+                <text x={x + 10} y={y + 50} className="dim">5 m × 3 m</text>
+              </g>
+            )
+          })()}
+
+          {winterGrown && (() => {
+            const orig = { x: 350, y: 150, w: 200, h: 150 }
+            const scale = 2
+            const w = orig.w * scale
+            const h = orig.h * scale
+            const x = orig.x - (w - orig.w) / 2
+            const y = orig.y - (h - orig.h) / 2
+            return (
+              <g key="overlay-winter">
+                <rect
+                  x={x}
+                  y={y}
+                  width={w}
+                  height={h}
+                  fill="#E6FFE6"
+                  stroke="#FF8C00"
+                  strokeWidth={4}
+                  style={{ pointerEvents: 'none' }}
+                />
+                <text x={x + 10} y={y + 30} className="room-label">Wintergarten</text>
+                <text x={x + 10} y={y + 50} className="dim">4 m × 3 m</text>
+              </g>
+            )
+          })()}
+        </g>
 
 
         {/* Hilfsachsen / Maße */}

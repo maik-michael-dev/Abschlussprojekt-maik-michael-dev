@@ -1,4 +1,4 @@
-import {  } from 'react'
+/*import {  } from 'react'
 
 import './App.css'
 import Bungalow from './components/bungalow/Bungalow'
@@ -10,6 +10,20 @@ function App() {
     <>
      <Bungalow/>
     </>
+  )
+}
+
+export default App*/
+
+
+import './App.css'
+import Bungalow from './components/bungalow/Bungalow'
+
+function App() {
+  return (
+    <div className="app-center">
+      <Bungalow />
+    </div>
   )
 }
 

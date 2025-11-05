@@ -1,3 +1,48 @@
-img {
+/*img {
   width:  1000px;
+}*/
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
 }
+
+.app-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.app-center svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+.app-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;     /* vertikal zentrieren */
+  justify-content: center; /* horizontal zentrieren */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* SVG passt sich dem Container an */
+.app-center svg {
+  width: min(95vw, 1200px); /* skaliert mit Fenster, maximiert auf 1200px */
+  height: auto;
+  display: block;
+}
+
+
+
